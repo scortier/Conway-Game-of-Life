@@ -1,4 +1,4 @@
-
+import java.util.*;  
 // 
 // Each cell is encouter by its surrounding 8 cells
 //alive  0 -> exact  3 life neighbours -> 1  
@@ -66,41 +66,24 @@ public class Board {
       public String toDisplay()
       {
           String answer="";
-          for(int row=0;row<getRow();row++)
+          for(int r=0;r<getRow();r++)
           {
-              for(int col=0;col<getCol();col++)
+              for(int c=0;c<getCol();c++)
               {
-                  answer+=grid[row][col];
+                  answer+=grid[r][c];
               }
           }
         //   System.out.println(answer);
     return answer;  
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
      public static void main(String[] args) throws Exception {
-        // System.out.println("Hello, World!");
-        // System.out.println("display"+ toDisplay());
-        // toDisplay();
-
-        // String = toDisplay();
+        Scanner sc= new Scanner(System.in); 
+        int r= sc.nextInt();  
+        int c= sc.nextInt();  
         String x;
-        int r=10,c=10;
+        // int r,c;
+
         Board bo=new Board(r,c);
         x=bo.toDisplay();
         System.out.println("display"+ x);
