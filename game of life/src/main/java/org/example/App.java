@@ -22,6 +22,8 @@ public class App extends Application {
         var scene = new Scene(mainView, 640, 480);
         stage.setScene(scene);
         stage.show();
+
+        mainView.draw();
     }
 
     public static void main(String[] args) {
