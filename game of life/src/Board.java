@@ -45,11 +45,7 @@ public class Board {
           grid[row][col]=value;
       }
 
-        /**
-      * toDisplay method display the grid
-      * @param row as the row fo the grid
-      * @param col as the column of the grid 
-      */
+      
 
       public int getRow()
       {
@@ -60,18 +56,26 @@ public class Board {
       {
           return grid[0].length;
       }
-      public void toDisplay()
+
+    /**
+      * toDisplay method display the grid
+      * @param row as the row fo the grid
+      * @param col as the column of the grid 
+      */
+
+      public String toDisplay()
       {
           String answer="";
-          for(int row=0;row<getRow;row++)
+          for(int row=0;row<getRow();row++)
           {
-              for(int col=0;col<getCol;col++)
+              for(int col=0;col<getCol();col++)
               {
                   answer+=grid[row][col];
               }
           }
-          System.out.println(answer);
-      }
+        //   System.out.println(answer);
+    return answer;  
+    }
 
 
 
@@ -92,9 +96,15 @@ public class Board {
      public static void main(String[] args) throws Exception {
         // System.out.println("Hello, World!");
         // System.out.println("display"+ toDisplay());
-        toDisplay();
+        // toDisplay();
 
         // String = toDisplay();
+        String x;
+        int r=10,c=10;
+        Board bo=new Board(r,c);
+        x=bo.toDisplay();
+        System.out.println("display"+ x);
+        
     }
 
     
