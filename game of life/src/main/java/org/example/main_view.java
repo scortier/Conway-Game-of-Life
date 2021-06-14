@@ -1,11 +1,14 @@
 package org.example;
 
+import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.transform.Affine;
+import javafx.scene.transform.NonInvertibleTransformException;
 
 public class main_view extends VBox {
 
@@ -24,21 +27,40 @@ public class main_view extends VBox {
 
 
 
-        canvas=new Canvas(400,400);
+        this.canvas=new Canvas(400,400);
+
+        this.canvas.setOnMousePressed(this::handleDraw);
 
         this.getChildren().addAll(this.stepButton,this.canvas);
         this.affine=new Affine();
         this.affine.appendScale(400/10f,400/10f);
         this.temp_simulate=new simulate(10,10);
 
-        temp_simulate.setAlive( 2, 2);
-        temp_simulate.setAlive(3, 2);
-        temp_simulate.setAlive(4, 2);
-        temp_simulate.setAlive(5, 6);
-        temp_simulate.setAlive(5, 5);
-        temp_simulate.setAlive(6, 5);
-        temp_simulate.setAlive(6, 6);
+//        temp_simulate.setAlive( 2, 2);
+//        temp_simulate.setAlive(3, 2);
+//        temp_simulate.setAlive(4, 2);
+//        temp_simulate.setAlive(5, 6);
+//        temp_simulate.setAlive(5, 5);
+//        temp_simulate.setAlive(6, 5);
+//        temp_simulate.setAlive(6, 6);
 
+    }
+    private void handleDraw(MouseEvent event)
+    {
+        double mouseX=event.getX();
+        double mouseY=event.getY();
+        System.out.println(mouseX+","+mouseY);
+
+
+        try{
+            Point2D coord= this.affine.inverseTransform(mouseX,mouseY);
+            int coordX=(int) coord.getX();
+
+//            System.out.println(coord);
+
+        } catch (NonInvertibleTransformException e) {
+            System.out.println("OOPS could not trnsform");
+        }
     }
 
     public void draw(){
