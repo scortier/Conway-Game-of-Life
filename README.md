@@ -17,11 +17,16 @@ These rules, which compare the behavior of the automaton to real life, can be co
 3. All other live cells die in the next generation. Similarly, all other dead cells stay dead.
 
 ## Examples
-
+![](GIF_GOL.gif)
 
 ## Features
+- User can any no of cells in the Box.
+- STEP button will show the next iteration of cell.
+- Press E in keyboard to erase the cell you want.
+- Press D in keyboard to again add the cell wherever you want.
 
 ## Requirements
+- JavaFx 5 +
 - Java 11 +
 - Maven 4+
 - Git
@@ -36,9 +41,7 @@ Written in Java using JavaFX
 First, go to the GameOfLife project base directory and run the following command: mvn package.
 
 ### 3. Launch
-After building you can find the distribution file gol-1.0.jar file in the target directory. Type java -jar gol-1.0.jar to run the application.
+After building you can find the distribution file ..... file in the target directory. Type ..... to run the application.
 
-
-
-
-##
+## Purpose
+This project was developed as part of Mini Bootcamp Day-1 organized by GoAcademy in GoSquad 4.0.
