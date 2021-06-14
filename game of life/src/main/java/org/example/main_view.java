@@ -29,7 +29,8 @@ public class main_view extends VBox {
 
         this.canvas=new Canvas(400,400);
 
-        this.canvas.setOnMousePressed(this::handleDraw);
+        this.canvas.setOnMousePressed(this::handleDraw); //draw while clicking mouse
+        this.canvas.setOnMouseDragged(this::handleDraw); //draw while dragging mouse
 
         this.getChildren().addAll(this.stepButton,this.canvas);
         this.affine=new Affine();
@@ -49,14 +50,18 @@ public class main_view extends VBox {
     {
         double mouseX=event.getX();
         double mouseY=event.getY();
-        System.out.println(mouseX+","+mouseY);
+//        System.out.println(mouseX+","+mouseY);
 
 
         try{
             Point2D coord= this.affine.inverseTransform(mouseX,mouseY);
             int coordX=(int) coord.getX();
-
+            int coordY=(int) coord.getY();
 //            System.out.println(coord);
+            System.out.println(coordX+","+coordY); //to convert coord into integers
+
+            this.temp_simulate.setAlive(coordX,coordY);
+            draw();
 
         } catch (NonInvertibleTransformException e) {
             System.out.println("OOPS could not trnsform");
