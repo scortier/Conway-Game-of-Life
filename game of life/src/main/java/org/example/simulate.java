@@ -71,16 +71,16 @@ public class simulate {
 
                     if (getState(x,y) == 1) {
                         if (aliveNeighbours < 2) {
-                            this.board[x][y] = 0;
+                            new_board[x][y] = 0;
                         } else if (aliveNeighbours == 2 || aliveNeighbours == 3) {
-                            this.board[x][y] = 1;
+                            new_board[x][y] = 1;
                         } else if (aliveNeighbours > 3) {
-                            this.board[x][y] = 0;
+                            new_board[x][y] = 0;
                         }
                     } else {
                         if (aliveNeighbours==3)
                         {
-                            this.board[x][y]=1;
+                            new_board[x][y]=1;
                         }
                     }
                 }
