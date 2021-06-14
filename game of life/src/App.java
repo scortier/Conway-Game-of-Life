@@ -50,7 +50,18 @@ public class App {
       * @param row as the row fo the grid
       * @param col as the column of the grid 
       */
-
+      public String toDisplay()
+      {
+          String answer="";
+          for(int row=0;row<R;row++)
+          {
+              for(int col=0;col<C;col++)
+              {
+                  answer+=grid[row][col];
+              }
+          }
+          return answer;
+      }
 
 
 
@@ -70,6 +81,9 @@ public class App {
 
      public static void main(String[] args) throws Exception {
         // System.out.println("Hello, World!");
+        System.out.println(toDisplay
+        ());
+        // String = toDisplay();
     }
 
     
