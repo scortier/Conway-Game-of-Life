@@ -1,4 +1,4 @@
-package org.example;
+package org.example.gol;
 
 public class simulate {
     int width;
@@ -30,13 +30,23 @@ public class simulate {
     }
 
     public void setAlive(int x, int y) {
-        this.board[x][y] = 1;
+        this.setState(x,y,1);
     }
 
     public void setDead(int x, int y) {
-        this.board[x][y] = 0;
+        this.setState(x,y,0);
     }
 
+    public void setState(int x,int y,int state)
+    {
+        if(x<0 || x>=width)
+            return;
+
+        if(y<0 || y>=height)
+            return;
+
+        this.board[x][y]=state;
+    }
         public int countAliveNeigh(int x,int y)
         {
             int count=0;

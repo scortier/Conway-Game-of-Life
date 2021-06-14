@@ -1,4 +1,4 @@
-package org.example;
+package org.example.gol;
 
 import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
@@ -23,7 +23,7 @@ public class main_view extends VBox {
 
     private int Draw_Mode=1; //1 as live and 0 as dead
     public main_view(){
-        stepButton = new Button("step");
+        stepButton = new Button("STEP");
         this.stepButton.setOnAction(actionEvent -> {
             temp_simulate.step();
             draw();
@@ -81,8 +81,11 @@ public class main_view extends VBox {
 
 //            this.temp_simulate.setAlive(coordX,coordY);
 
-            this.temp_simulate.board[coordX][coordY]=Draw_Mode;
+//            this.temp_simulate.board[coordX][coordY]=Draw_Mode;
+
+            this.temp_simulate.setState(coordX,coordY,Draw_Mode);
             draw();
+
 
         } catch (NonInvertibleTransformException e) {
             System.out.println("OOPS could not trnsform");

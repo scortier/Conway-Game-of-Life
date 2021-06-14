@@ -1,4 +1,4 @@
-package org.example;
+package org.example.gol;
 
 public class SystemInfo {
 
