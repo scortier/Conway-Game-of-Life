@@ -6,7 +6,7 @@
 // next gen 1 -> 2 or 3 life -> 1 
 //2d array which store random collection of 0 and 1
 
-public class App {
+public class Board {
 
     int [][] grid;
     int R=grid.length;
@@ -50,17 +50,27 @@ public class App {
       * @param row as the row fo the grid
       * @param col as the column of the grid 
       */
-      public String toDisplay()
+
+      public int getRow()
+      {
+          return grid.length;
+      }
+
+      public int getCol()
+      {
+          return grid[0].length;
+      }
+      public void toDisplay()
       {
           String answer="";
-          for(int row=0;row<R;row++)
+          for(int row=0;row<getRow;row++)
           {
-              for(int col=0;col<C;col++)
+              for(int col=0;col<getCol;col++)
               {
                   answer+=grid[row][col];
               }
           }
-          return answer;
+          System.out.println(answer);
       }
 
 
@@ -81,8 +91,9 @@ public class App {
 
      public static void main(String[] args) throws Exception {
         // System.out.println("Hello, World!");
-        System.out.println(toDisplay
-        ());
+        // System.out.println("display"+ toDisplay());
+        toDisplay();
+
         // String = toDisplay();
     }
 

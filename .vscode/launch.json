@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Board",
+            "request": "launch",
+            "mainClass": "Board",
+            "projectName": "Conway-Game-of-Life_5ec7f5f3"
+        },
+        {
+            "type": "java",
             "name": "Launch HelloWorld",
             "request": "launch",
             "mainClass": "main.HelloWorld",
