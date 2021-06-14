@@ -40,23 +40,65 @@ public class simulate {
         public int countAliveNeigh(int x,int y)
         {
             int count=0;
-            count += this. board[x - 1] [y - 1];
-            count += this. board[x] [y - 1];
-            count += this. board [x + 1] [y - 1];
-            count += this. board [x - 1] [y];
-            count += this. board [x + 1] [y] ;
+            count += isAlive (x - 1,y - 1);
+            count += isAlive (x,y - 1);
+            count += isAlive (x + 1,y - 1);
+            count += isAlive (x - 1,y);
+            count += isAlive (x + 1,y] ;
 
-            count += this. board [x - 1] [y + 1];
-            count += this. board [x] [y + 1];
-            count += this. board [x + 1] [y + 1];
-    return  count;
+            count += isAlive (x - 1,y + 1);
+            count += isAlive ( x,y + 1);
+            count += isAlive (x + 1,y + 1);
+            return  count;
+        }
+
+        public int isAlive(int x,int y)
+        {
+            if(x<0 || x>=width)
+                return 0;
+
+            if(y<0 || y>=height)
+                return 0;
+        }
+        public void step()
+        {
+            for (int y = 0; y < height; y++) {
+                for (int x = 0; x < width; x++) {
+                    int aliveNeighbours = countAliveNeigh(x, y);
+
+
+                    if (this.board[x][y] == 1) {
+                        if (aliveNeighbours < 2) {
+                            this.board[x][y] = 0;
+                        } else if (aliveNeighbours = 2 || aliveNeighbours = 3) {
+                            this.board[x][y] = 1;
+                        } else if (aliveNeighbours > 3) {
+                            this.board[x][y] = 1;
+                        }
+                    } else {
+                        if (aliveNeighbours==3)
+                        {
+                            this,board[x][y]==1;
+                        }
+                    }
+                }
+            }
         }
     public static void main(String[] args) {
         simulate temp_test = new simulate(8,5);
-        simulation.setAlive( 2, 2);
-        simulation.setAlive(3, 2);
-        simulation.setAlive(4, 2);
-        simulation.printBoard();
+        temp_test.setAlive( 2, 2);
+        temp_test.setAlive(3, 2);
+        temp_test.setAlive(4, 2);
+        temp_test.printBoard();
+
+//        System.out.println(temp_test.countAliveNeigh(3,2));
+        temp_test.step();
+
+        temp_test.printBoard();
+        temp_test.step();
+        temp_test.printBoard();
+
 
     }
+
 }
