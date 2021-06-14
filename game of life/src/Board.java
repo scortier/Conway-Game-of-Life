@@ -78,15 +78,15 @@ public class Board {
     }
 
      public static void main(String[] args) throws Exception {
-        Scanner sc= new Scanner(System.in); 
-        int r= sc.nextInt();  
-        int c= sc.nextInt();  
-        String x;
-        // int r,c;
+        // Scanner sc= new Scanner(System.in); 
+        // int r= sc.nextInt();  
+        // int c= sc.nextInt();  
+        // String x;
+        // // int r,c;
 
-        Board bo=new Board(r,c);
-        x=bo.toDisplay();
-        System.out.println("display"+ x);
+        // Board bo=new Board(r,c);
+        // x=bo.toDisplay();
+        // System.out.println("display"+ x);
         
     }
 
