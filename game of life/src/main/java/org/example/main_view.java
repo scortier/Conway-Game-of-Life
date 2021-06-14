@@ -4,6 +4,8 @@ import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -18,6 +20,8 @@ public class main_view extends VBox {
     private Affine affine; //rearange things in canvas
 
     private simulate temp_simulate;
+
+    private int Draw_Mode=1; //1 as live and 0 as dead
     public main_view(){
         stepButton = new Button("step");
         this.stepButton.setOnAction(actionEvent -> {
@@ -31,6 +35,8 @@ public class main_view extends VBox {
 
         this.canvas.setOnMousePressed(this::handleDraw); //draw while clicking mouse
         this.canvas.setOnMouseDragged(this::handleDraw); //draw while dragging mouse
+
+        this.setOnKeyPressed(this::onKeyPressed);
 
         this.getChildren().addAll(this.stepButton,this.canvas);
         this.affine=new Affine();
@@ -46,6 +52,19 @@ public class main_view extends VBox {
 //        temp_simulate.setAlive(6, 6);
 
     }
+
+    private void onKeyPressed(KeyEvent keyEvent) {
+        if(keyEvent.getCode()== KeyCode.D){
+            this.Draw_Mode=1;
+            System.out.println("Draw mode");
+        }
+        else if(keyEvent.getCode()==KeyCode.E)
+        {
+            this.Draw_Mode=0;
+            System.out.println("Erase Mode");
+        }
+    }
+
     private void handleDraw(MouseEvent event)
     {
         double mouseX=event.getX();
@@ -60,7 +79,9 @@ public class main_view extends VBox {
 //            System.out.println(coord);
             System.out.println(coordX+","+coordY); //to convert coord into integers
 
-            this.temp_simulate.setAlive(coordX,coordY);
+//            this.temp_simulate.setAlive(coordX,coordY);
+
+            this.temp_simulate.board[coordX][coordY]=Draw_Mode;
             draw();
 
         } catch (NonInvertibleTransformException e) {
