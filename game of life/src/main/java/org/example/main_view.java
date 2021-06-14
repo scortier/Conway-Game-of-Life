@@ -17,6 +17,13 @@ public class main_view extends VBox {
     private simulate temp_simulate;
     public main_view(){
         stepButton = new Button("step");
+        this.stepButton.setOnAction(actionEvent -> {
+            temp_simulate.step();
+            draw();
+        });
+
+
+
         canvas=new Canvas(400,400);
 
         this.getChildren().addAll(this.stepButton,this.canvas);
@@ -54,12 +61,12 @@ public class main_view extends VBox {
 
         g.setStroke(Color.GRAY);
         g.setLineWidth(0.05);
-        for(int x=0;x<this.temp_simulate.width;x++)
+        for(int x=0;x<=this.temp_simulate.width;x++)
         {
             g.strokeLine(x,0,x,10);
         }
 
-        for(int y=0;y<this.temp_simulate.height;y++)
+        for(int y=0;y<=this.temp_simulate.height;y++)
         {
             g.strokeLine(0,y,10,y);
         }
